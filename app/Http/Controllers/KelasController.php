@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,8 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+        $kelas = Kelas::all();
+        return view('kelas.index', compact('kelas'));
     }
 
     /**

@@ -33,7 +33,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                            <li>
+                                <a class="navbar-brand"
+                                href="{{route('kelas.index')}}">
+                                Daftar Kelas
+                                </a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
