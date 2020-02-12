@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Daftar Kelas
-                <a href="{{route('kelas.create')}}"
+                    Daftar Mapel
+                <a href="{{route('mapel.create')}}"
                 class="btn btn-primary float-right">
                     Tambah Data
                     </a>
@@ -25,24 +25,24 @@
                             <thead>
                                 <tr>
                                     <th>Nomor</th>
-                                    <th>Nama Kelas</th>
+                                    <th>Nama Mapel</th>
                                     <th colspan="3">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                             @php $no= 1; @endphp
-                                @foreach($kelas as $data)
+                                @foreach($mapel as $data)
                                     <tr>
                                             <td>{{$no++}}</td>
                                             <td>{{$data->nama}}</td>
                                             <td>
-                                                <a href="{{route('kelas.show', $data->id)}}" class="btn btn-info">Show</a>
+                                                <a href="{{route('mapel.show', $data->id)}}" class="btn btn-info">Show</a>
                                             </td>
                                             <td>
-                                                <a href="{{route('kelas.edit', $data->id)}}" class="btn btn-success">Edit</a>
+                                                <a href="{{route('mapel.edit', $data->id)}}" class="btn btn-success">Edit</a>
                                             </td>
                                             <td>
-                                            <form action="{{route('kelas.destroy', $data->id)}}" method="post">
+                                            <form action="{{route('mapel.destroy', $data->id)}}" method="post">
                                                 @csrf 
                                                 @method('DELETE')
                                             <button type="submit" onclick="return confirm('Apakah Anda Yakin ?');"class="btn btn-danger">

@@ -36,7 +36,13 @@
                             <li>
                                 <a class="navbar-brand"
                                 href="{{route('kelas.index')}}">
-                                Daftar Kelas
+                                Daftar-Kelas
+                                </a>
+                            </li>
+                            <li>
+                                <a class="navbar-brand"
+                                href="{{route('mapel.index')}}">
+                                Daftar-Mapel
                                 </a>
                             </li>
                     </ul>

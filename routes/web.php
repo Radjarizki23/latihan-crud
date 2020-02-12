@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Crud
 Route::resource('kelas', 'KelasController');
+Route::resource('mapel', 'MapelController');
