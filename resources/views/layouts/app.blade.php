@@ -45,6 +45,12 @@
                                 Daftar-Mapel
                                 </a>
                             </li>
+                            <li>
+                                <a class="navbar-brand"
+                                href="{{route('siswa.index')}}">
+                                Daftar-Siswa
+                                </a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

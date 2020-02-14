@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kelas extends Model
 {
-    protected $fillable = ['nama'];
+    protected $fillable = ['id','kelas'];
     public $timestamps = true;
+
+    public function siswa()
+    {
+        return $this->hasMany('App\Siswa');
+    }
 }
+// hasMany artinya satu kebanyak (one to many)

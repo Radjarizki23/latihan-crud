@@ -22,3 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Crud
 Route::resource('kelas', 'KelasController');
 Route::resource('mapel', 'MapelController');
+Route::resource('siswa', 'SiswaController');
+
+// Route::resource('eloquent', function ()
+// {
+//     $kelas = Kelas::with('siswa', 'mapel')->get();
+//     return view('eloquent', compact('data'));
+// });

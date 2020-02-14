@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <form action="{{route('kelas.store')}}" method="post">
                         @csrf
+
                         <div class="form-group">
                                 <label>Kelas</label>
                                 <input type="text" name="nama" class="form-control" required>

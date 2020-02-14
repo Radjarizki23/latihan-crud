@@ -42,7 +42,7 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $kelas = new Kelas();
-        $kelas->nama = $request->nama;
+        $kelas->kelas = $request->nama;
         $kelas->save();
         return redirect()->route('kelas.index');
     }
