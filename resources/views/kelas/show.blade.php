@@ -13,6 +13,15 @@
                                 <input type="text" name="nama" value="{{$kelas->kelas}}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
+                                <label for="">Daftar Siswa</label>
+                                <ul>
+                                    @foreach ($kelas->siswa as $data)
+                                <li>{{$data->nama}} - {{$data->nis}}</li>
+                                    @endforeach        
+                                </ul>
+                            </div>
+
+                            <div class="form-group">
                                 <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
                             </div>
                 </div>

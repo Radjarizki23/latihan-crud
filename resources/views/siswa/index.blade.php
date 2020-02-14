@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-15">
             <div class="card">
                 <div class="card-header">
                     Daftar Siswa
@@ -26,9 +26,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nis</th>
-                                    <th>Nama Siswa</th>
+                                    <th>Nama</th>
                                     <th>Alamat</th>
-                                    <th>Id Kelas</th>
+                                    <th>Kelas</th>
+                                    <th>Mapel</th>
                                     <th colspan="3">Aksi</th>
                                 </tr>
                             </thead>
@@ -41,6 +42,11 @@
                                             <td>{{$data->nama}}</td>
                                             <td>{{$data->alamat}}</td>
                                             <td>{{$data->kelas}}</td>
+                                            <td>
+                                                @foreach($data->mapel as $value)
+                                                    <li>{{$value->nama}}</li>
+                                                @endforeach    
+                                            </td>
                                             <td>
                                                 <a href="{{route('siswa.show', $data->id)}}" class="btn btn-info">Show</a>
                                             </td>

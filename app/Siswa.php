@@ -11,5 +11,13 @@ class Siswa extends Model
         return $this->BelongsTo('App\Kelas', 'id_kelas');
     }
 
+    public function mapel()
+    {
+        return $this->BelongsToMany('App\Siswa',
+        'mapel_siswa',
+        'id_siswa',
+        'id_mapel'
+        );
+    }
 }
     //belongsTo artinya tabel yang tuju

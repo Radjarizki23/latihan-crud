@@ -6,6 +6,7 @@ use App\Siswa;
 use App\Kelas;
 use Illuminate\Http\Request;
 use DB;
+use App\Mapel;
 
 class SiswaController extends Controller
 {
@@ -20,13 +21,14 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = DB::table('siswas')
-        ->join('kelas', 'kelas.id', '=', 'siswas.id_kelas')
-        ->select('siswas.id', 'siswas.nis', 'siswas.nama', 'siswas.alamat', 'kelas.kelas')
-        ->get();
-        return view('siswa.index', compact('siswa'));
-        // $siswa = Siswa::all();
+        // $siswa = DB::table('siswas')
+        // ->join('kelas', 'kelas.id', '=', 'siswas.id_kelas')
+        // ->select('siswas.id', 'siswas.nis', 'siswas.nama', 'siswas.alamat', 'kelas.kelas')
+        // ->get();
         // return view('siswa.index', compact('siswa'));
+        // $siswa = Siswa::all();
+        $siswa = Siswa::with('kelas', 'mapel')->get();
+        return view('siswa.index', compact('siswa'));
     }
 
     /**
@@ -37,7 +39,8 @@ class SiswaController extends Controller
     public function create()
     {
         $kelas = Kelas::all();
-        return view('siswa.create', compact('kelas'));
+        $mapel = Mapel::all();
+        return view('siswa.create', compact('kelas', 'mapel'));
     }
 
     /**
@@ -54,6 +57,7 @@ class SiswaController extends Controller
         $siswa->alamat = $request->alamat;
         $siswa->id_kelas = $request->id_kelas;
         $siswa->save();
+        $siswa->mapel()->attach($request->mapel);
         return redirect()->route('siswa.index');
     }
 
@@ -79,7 +83,8 @@ class SiswaController extends Controller
     {
         $kelas = Kelas::all();
         $siswa = Siswa::findOrFail($id);
-        return view('siswa.edit', compact('siswa', 'kelas'));
+        $kelas = Kelas::all();
+        return view('siswa.edit', compact('siswa', 'kelas', 'mapel'));
     }
 
     /**
@@ -97,6 +102,8 @@ class SiswaController extends Controller
         $siswa->alamat = $request->alamat;
         $siswa->id_kelas = $request->id_kelas;
         $siswa->save();
+        $siswa->mapel()->sync($request->mapel);
+        // dd($siswa);
         return redirect()->route('siswa.index');
     }
 

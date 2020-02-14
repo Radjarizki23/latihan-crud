@@ -11,7 +11,7 @@ class Kelas extends Model
 
     public function siswa()
     {
-        return $this->hasMany('App\Siswa');
+        return $this->hasMany('App\Siswa', 'id_kelas');
     }
 }
 // hasMany artinya satu kebanyak (one to many)
