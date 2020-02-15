@@ -33,6 +33,17 @@
                                     </option>
                                 @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="">Mapel</label>
+                            <select name="mapel[]" class="form-control" multiple>
+                            @foreach($mapel as $data)
+                                    <option value="{{ $data->id }}"
+                                    {{ (in_array($data->id, $selected)) ? ' selected="selected"' : '' }}>
+                                    {{ $data->nama }}
+                                    </option>
+                                @endforeach
+                                </select>
                             </div>                
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
